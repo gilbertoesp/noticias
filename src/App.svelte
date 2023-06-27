@@ -1,7 +1,7 @@
 <script>
   import Counter from './lib/Counter.svelte'
   import Form from './lib/Form.svelte'
-
+  
   const PAGE_SIZE = 20;
 
   const latest_stories = (async () => {
@@ -11,13 +11,6 @@
 </script>
 
 <main>
-  <div>
-
-  </div>
-
-  <div class="card">
-    <Counter />
-  </div>
 
   <div class="list__container">
     <div class="list__header">
@@ -37,5 +30,8 @@
 </main>
 
 <style>
-
+  h1{
+    font-size: 5rem;
+    text-align: left;
+  }
 </style>
