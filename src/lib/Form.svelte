@@ -2,8 +2,15 @@
     export let id;
 
     const fetchNew = (async () => {
-        const response = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`);
-        return await response.json();
+        try {
+			const response = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`);
+			if(!response.ok){
+				throw new Error("API broken")
+			}
+			return await response.json();
+		} catch (error) {
+			console.log(error)
+		}
     })()
 
 </script>
@@ -25,11 +32,13 @@
 	}
 
 	h3 {
-		font-size: 2.5rem;
+		font-size: 1.1rem;
 		margin: 0.5em 0;
+		text-align: left;
 	}
 
 	a {
-		color: blue;
+		color: aliceblue;
+
 	}
 </style>

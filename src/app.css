@@ -12,13 +12,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-
-  box-sizing: border-box;
-  font-size: 62.5%; 
-  /* 1 rem = 10px */
-
-  text-align: center;
-  margin: 0 auto;
 }
 
 a {

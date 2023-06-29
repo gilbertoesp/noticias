@@ -1,12 +1,19 @@
 <script>
-  import Counter from './lib/Counter.svelte'
   import Form from './lib/Form.svelte'
   
   const PAGE_SIZE = 20;
 
   const latest_stories = (async () => {
-    const res = await fetch(`https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty`)
-    return await res.json();
+    try {
+      const res = await fetch(`https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty`)
+      if(!res.ok){
+        throw new Error ("Fail API")
+      }
+      return await res.json();
+
+    } catch (error) {
+      console.log(error)
+    }
   })()
 </script>
 
@@ -30,8 +37,16 @@
 </main>
 
 <style>
+  :global(main){
+    box-sizing: border-box;
+    font-size: 62.5%; 
+    /* 1 rem = 10px */
+
+   text-align: center;
+   margin: 0 auto;
+  }
   h1{
-    font-size: 5rem;
+    font-size: 3rem;
     text-align: left;
   }
 </style>
